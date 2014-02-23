@@ -1,0 +1,31 @@
+Source: libtie-cache-lru-expires-perl
+Section: perl
+Priority: optional
+Maintainer: Christopher <christo@prostetnic.griesheimoehle>
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: libtie-cache-lru-perl (>= 0.21),
+ perl,
+ perl-modules
+Standards-Version: 3.9.2
+Homepage: http://search.cpan.org/dist/Tie-Cache-LRU-Expires/
+
+Package: libtie-cache-lru-expires-perl
+Architecture: all
+Depends: ${misc:Depends}, ${perl:Depends},
+ libtie-cache-lru-perl (>= 0.21)
+Description: unknown
+ This is an expiring LRU cache, using Tie::Cache::LRU. Each entry in this
+ cache expires after 'EXPIRES' seconds (default 3600). The cache is in RAM
+ (see Tie::Cache::LRU). ENTRIES provides the maximum number of entries in the
+ Tie::Cache::LRU cache.
+ .
+ It works by checking if a cached entry hasn't expired. If it has, undef is
+ returned, otherwise it's value. If the entry wasn't cached, undef is also
+ returned (of course). Expired entries will eventually drop of the LRU; or, if
+ referenced will (as can be expected, otherwise they wouldn't be referenced)
+ be refreshed.
+ .
+ NB! If entries keep being referenced and are expired, but never refreshed,
+ they will never leave the LRU!
+ .
+ This description was automagically extracted from the module by dh-make-perl.
